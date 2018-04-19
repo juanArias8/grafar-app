@@ -4,11 +4,10 @@ import matplotlib.pyplot as plt
 
 
 class Graph:
-    def __init__(self, function_param, images_path):
+    def __init__(self, function_param):
         self.function_param = function_param
         self.fx = sym.sympify(self.function_param)
         self.x = sym.Symbol("x")
-        self.images_path = images_path
 
     @np.vectorize
     def evaluate_fx(self, x_value):
@@ -20,5 +19,5 @@ class Graph:
         figure = plt.figure()
         plt.plot(vector, fx_evaluated, "-r", label="function f(x) = %s" % self.function_param)
         plt.show()
-        figure.savefig(self.images_path + str(self.function_param) + '.png')
+        figure.savefig("/home/jnda/PycharmProjects/Grafar/static/functions_images/" + str(self.function_param) + '.png')
         return self.function_param
