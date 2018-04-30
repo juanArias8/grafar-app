@@ -13,7 +13,7 @@ app = Flask(__name__)
 # db.authenticate("admin", "grafar123")
 
 # Create mongo client
-mongo_client = MongoClient(os.environ['DB_URL'], os.environ['DB_PORT'])
+mongo_client = MongoClient(os.environ['DB_URL'], int(os.environ['DB_PORT']))
 
 # Connect to database GrafarDB
 grafar_db = mongo_client[os.environ['DB_NAME']]
