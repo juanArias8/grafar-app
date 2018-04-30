@@ -6,12 +6,20 @@ from Graph import Graph
 import os
 
 app = Flask(__name__)
+#
+# mongodb://<dbuser>:<dbpassword>@ds261479.mlab.com:61479/grafar
+# connection = MongoClient("ds261479.mlab.com", 61479)
+# db = connection["grafar"]
+# db.authenticate("admin", "grafar123")
 
 # Create mongo client
-mongo_client = MongoClient("localhost", 27017)
+mongo_client = MongoClient(os.environ['DB_URL'], os.environ['DB_PORT'])
 
 # Connect to database GrafarDB
-grafar_db = mongo_client.GrafarDB
+grafar_db = mongo_client[os.environ['DB_NAME']]
+
+#Authenticate
+grafar_db.authenticate(os.environ['DB_USER'], os.environ['DB_PASS'])
 
 # Connect to graphs document
 graphs_collection = grafar_db.graphs
@@ -20,7 +28,7 @@ graphs_collection = grafar_db.graphs
 # root
 @app.route("/")
 def index():
-    return "Grafar is a great application!!"
+    return "Grafar is a great application!!!!!"
 
 
 # GET
@@ -57,5 +65,6 @@ def page_not_found(error):
     return "The place you're looking for does not exist </br> error: %s" % error
 
 
-if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000)
+#if __name__ == "__main__":
+    # app.run(host="127.0.0.1", port=5000)
+#

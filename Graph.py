@@ -1,5 +1,7 @@
 import numpy as np
 import sympy as sym
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 
@@ -19,5 +21,5 @@ class Graph:
         figure = plt.figure()
         plt.plot(vector, fx_evaluated, "-r", label="function f(x) = %s" % self.function_param)
         plt.show()
-        figure.savefig("/home/jnda/PycharmProjects/Grafar/static/functions_images/" + str(self.function_param) + '.png')
+        #figure.savefig("/home/jnda/PycharmProjects/Grafar/static/functions_images/" + str(self.function_param) + '.png')
         return self.function_param
