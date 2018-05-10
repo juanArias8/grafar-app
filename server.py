@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import request
 from flask import jsonify
+from flask import send_file
 from pymongo import MongoClient
 from controllers.controller_graph import Graph
 import controllers.controller_database as controller_db
@@ -52,30 +53,35 @@ def get_api():
 def get_function():
     """
     :param: data: data is a json {"function": fx, "a": number, "b": number}
-    :return: json {"message": "Your function is 10*x+2div6","success": true}
+    :return: if success:
+                return the function image
+             if not success:
+                json {"message": "Your function is 10*x+2div6","success": true}
     """
     success = False
 
     json = request.get_json()
-    function_param = json['function']
-    a_param = json['a']
-    b_param = json['b']
 
-    if function_param is None or a_param is None or b_param is None:
+    try:
+        function_param = json['function']
+        a_param = json['a']
+        b_param = json['b']
+    except Exception as e:
+        print(e)
         message = 'You should type a valid function, and the points a and b'
     else:
         graph = Graph(function_param, a_param, b_param, url_images)
         success, function_name = graph.create_graph()
         if success:
             controller_db.insert_graph(graphs_collection, function_name)
-            message = 'Your function is ' + function_name
-        else:
-            message = 'An error has occurred'
-
-    return jsonify({
-        "success": success,
-        "message": message
-    })
+            filename = './static/functions_images/' + function_name + '.png'
+    if success:
+        return send_file(filename, mimetype='image/png')
+    else:
+        return jsonify({
+            "success": success,
+            "message": message
+        })
 
 
 @app.errorhandler(404)
