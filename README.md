@@ -12,8 +12,9 @@ of a mathematical function.
 * Pymongo connector added
 * Api rest defined
 * * http://127.0.0.1:5000/api (GET)return all graphs objects
-* * http://127.0.0.1:5000/api/data (POST) params: {"function": "x^2+2"}
-* Class Graph added
-* * Graph class create the graph of a function and save it into the database
+* * http://127.0.0.1:5000/api/data (POST) params: {"function": "x^2+2", "a": 1, "b": 20}
+* Controllers added 
+* * controller_graph crate a graph image from a function and save it 
+* * controller_database define all necessary operations whit mongodb database
  
  
