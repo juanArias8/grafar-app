@@ -1,11 +1,12 @@
 from flask import Flask
 from flask import request
 from flask import jsonify
-from flask import send_file
 from pymongo import MongoClient
 from controllers.controller_graph import Graph
 import controllers.controller_database as controller_db
 import os
+import base64
+from json import dumps
 
 app = Flask(__name__)
 #
@@ -85,14 +86,14 @@ def get_function():
         success, function_name = graph.create_graph()
         if success:
             controller_db.insert_graph(graphs_collection, function_name)
-            filename = '/app/static/functions_images/' + function_name + '.png'
-    if success:
-        return send_file(filename, mimetype='image/png')
-    else:
-        return jsonify({
-            "success": success,
-            "message": message
-        })
+            filename = url_images + function_name + '.png'
+            with open(filename, 'rb') as file:
+                encode_file = base64.b64encode(file.read())
+            message = encode_file.decode('utf-8')
+    return jsonify({
+        "success": success,
+        "message": message
+    })
 
 
 @app.errorhandler(404)

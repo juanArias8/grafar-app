@@ -4,6 +4,8 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
+from PIL import Image
+
 
 class Graph:
     def __init__(self, function_param, a_param, b_param, ulr_images):
@@ -14,7 +16,7 @@ class Graph:
         self.url_images = ulr_images
 
         self.fx = sym.sympify(self.function_param)
-        self.x = sym.Symbol("x")
+        self.x = sym.Symbol('x')
 
     @np.vectorize
     def evaluate_fx(self, x_value):
@@ -29,11 +31,11 @@ class Graph:
 
         try:
             figure = plt.figure()
-            plt.plot(vector, fx_evaluated)
+            plt.plot(vector, fx_evaluated, linewidth=10)
             plt.show()
             function_name = self.__replace_div_in_function(self.function_param)
             self.__save_figure_in_folder(figure, self.url_images, function_name)
-
+            self.__convert_to_transparent_image(self.url_images, function_name)
             success = True
         except Exception as e:
             print("En controller_graph.py")
@@ -43,15 +45,31 @@ class Graph:
 
     @staticmethod
     def __replace_div_in_function(function_name: str) -> str:
-        function_name = function_name.replace("/", "div")
+        function_name = function_name.replace('/', 'div')
         return function_name
 
     @staticmethod
     def __replace_div_out_function(function_name: str) -> str:
-        function_name = function_name.replace("div", "/")
+        function_name = function_name.replace('div', '/')
         return function_name
 
     @staticmethod
     def __save_figure_in_folder(figure, url_images: str, function_name: str)\
             -> None:
-        figure.savefig(url_images + function_name + ".png")
+        figure.savefig(url_images + function_name + '.png')
+
+    @staticmethod
+    def __convert_to_transparent_image(url_images: str, function_name: str)\
+            -> None:
+        url_image = url_images + function_name + '.png'
+        img = Image.open(url_image)
+        img = img.convert('RGBA')
+        data = img.getdata()
+        new_data = []
+        for item in data:
+            if item[0] == 255 and item[1] == 255 and item[2] == 255:
+                new_data.append((255, 255, 255, 0))
+            else:
+                new_data.append(item)
+        img.putdata(new_data)
+        img.save(url_image, 'PNG')
