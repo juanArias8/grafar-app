@@ -6,12 +6,13 @@ insert, search, update and delete fields from database
 
 def insert_graph(collection, function_name) -> None:
     try:
-        url_image = './static/functions_images/' + function_name + '.png'
+        url_image = 'static/functions_images/' + function_name + '.png'
         collection.insert({
             'function': function_name,
             'image': url_image
         })
     except Exception as e:
+        print("En controller_database.py")
         print(e)
 
 

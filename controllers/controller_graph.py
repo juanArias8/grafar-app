@@ -1,5 +1,7 @@
 import numpy as np
 import sympy as sym
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 from PIL import Image
@@ -36,6 +38,7 @@ class Graph:
             self.__convert_to_transparent_image(self.url_images, function_name)
             success = True
         except Exception as e:
+            print("En controller_graph.py")
             print(e)
 
         return success, function_name

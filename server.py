@@ -4,22 +4,31 @@ from flask import jsonify
 from pymongo import MongoClient
 from controllers.controller_graph import Graph
 import controllers.controller_database as controller_db
+import os
 import base64
 from json import dumps
 
 app = Flask(__name__)
+#
+# mongodb://<dbuser>:<dbpassword>@ds261479.mlab.com:61479/grafar
+# connection = MongoClient("ds261479.mlab.com", 61479)
+# db = connection["grafar"]
+# db.authenticate("admin", "grafar123")
 
 # Create mongo client
-mongo_client = MongoClient('localhost', 27017)
+mongo_client = MongoClient(os.environ['DB_URL'], int(os.environ['DB_PORT']))
 
 # Connect to database GrafarDB
-grafar_db = mongo_client.GrafarDB
+grafar_db = mongo_client[os.environ['DB_NAME']]
+
+#Authenticate
+grafar_db.authenticate(os.environ['DB_USER'], os.environ['DB_PASS'])
 
 # Connect to graphs document
 graphs_collection = grafar_db.graphs
 
 # Define URL folder to save images
-url_images = '/home/jnda/PycharmProjects/Grafar/static/functions_images/'
+url_images = '/app/static/functions_images/'
 
 
 # root
@@ -60,6 +69,7 @@ def get_function():
                 json {"message": "Your function is 10*x+2div6","success": true}
     """
     success = False
+    message = ''
 
     json = request.get_json()
 
@@ -68,6 +78,7 @@ def get_function():
         a_param = json['a']
         b_param = json['b']
     except Exception as e:
+        print("En try de server.py ")
         print(e)
         message = 'You should type a valid function, and the points a and b'
     else:
@@ -100,5 +111,6 @@ def page_not_found(error):
     })
 
 
-if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000)
+#if __name__ == "__main__":
+    # app.run(host="127.0.0.1", port=5000)
+#
