@@ -4,46 +4,44 @@ insert, search, update and delete fields from database
 """
 
 
-def insert_graph(collection, function_name) -> None:
+def insert_graph(collection, function_name, x, y):
     try:
-        url_image = './static/functions_images/' + function_name + '.png'
         collection.insert({
             'function': function_name,
-            'image': url_image
+            'x': str(x),
+            'y': str(y)
         })
     except Exception as e:
         print(e)
 
 
 def search_function(collection, function_name: str) -> tuple:
+    success = False
+    message = None
     try:
-        success = False
-        message = None
-
         graph_response = collection.find_one({
             'function': function_name
         })
-
+    except Exception as e:
+        print(e)
+    else:
         if graph_response is not None:
             success = True
             message = graph_response
-
+    finally:
         return success, message
-    except Exception as e:
-        print(e)
 
 
 def search_all_functions(collection) -> tuple:
+    success = False
+    message = None
     try:
-        success = False
-        message = None
-
         data = collection.find()
-
+    except Exception as e:
+        print(e)
+    else:
         if data is not None:
             success = True
             message = data
-
+    finally:
         return success, message
-    except Exception as e:
-        print(e)

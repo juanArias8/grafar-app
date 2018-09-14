@@ -1,17 +1,12 @@
-import numpy as np
 import sympy as sym
-import matplotlib.pyplot as plt
-
-from PIL import Image
+import numpy as np
 
 
 class Graph:
-    def __init__(self, function_param, a_param, b_param, ulr_images):
+    def __init__(self, function_param, a_param, b_param):
         self.function_param = function_param
         self.a_param = a_param
         self.b_param = b_param
-
-        self.url_images = ulr_images
 
         self.fx = sym.sympify(self.function_param)
         self.x = sym.Symbol('x')
@@ -20,53 +15,9 @@ class Graph:
     def evaluate_fx(self, x_value):
         return self.fx.subs(self.x, x_value)
 
-    def create_graph(self):
-        success = False
-        function_name = None
+    def create_graph_points(self):
+        x = np.linspace(self.a_param, self.b_param, 1000)
+        y = self.evaluate_fx(self, x)
 
-        vector = np.linspace(self.a_param, self.b_param, 1000)
-        fx_evaluated = self.evaluate_fx(self, vector)
+        return list(x), list(y)
 
-        try:
-            figure = plt.figure()
-            plt.plot(vector, fx_evaluated, linewidth=10)
-            plt.show()
-            function_name = self.__replace_div_in_function(self.function_param)
-            self.__save_figure_in_folder(figure, self.url_images, function_name)
-            self.__convert_to_transparent_image(self.url_images, function_name)
-            success = True
-        except Exception as e:
-            print(e)
-
-        return success, function_name
-
-    @staticmethod
-    def __replace_div_in_function(function_name: str) -> str:
-        function_name = function_name.replace('/', 'div')
-        return function_name
-
-    @staticmethod
-    def __replace_div_out_function(function_name: str) -> str:
-        function_name = function_name.replace('div', '/')
-        return function_name
-
-    @staticmethod
-    def __save_figure_in_folder(figure, url_images: str, function_name: str)\
-            -> None:
-        figure.savefig(url_images + function_name + '.png')
-
-    @staticmethod
-    def __convert_to_transparent_image(url_images: str, function_name: str)\
-            -> None:
-        url_image = url_images + function_name + '.png'
-        img = Image.open(url_image)
-        img = img.convert('RGBA')
-        data = img.getdata()
-        new_data = []
-        for item in data:
-            if item[0] == 255 and item[1] == 255 and item[2] == 255:
-                new_data.append((255, 255, 255, 0))
-            else:
-                new_data.append(item)
-        img.putdata(new_data)
-        img.save(url_image, 'PNG')
