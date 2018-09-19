@@ -1,31 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77ffe8fe-af66-4e7a-83f4-4d7d7d404ed0" name="Default" comment="update version to 1.0.1">
-      <change afterPath="$PROJECT_DIR$/static/css/icons.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/materialize.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/fonts/icons_fonts.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/header1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/image1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/image2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/jupyter.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/mars.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/mercurio.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/sistemasolar.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/sistemasolar1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/sistemasolar2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/tierra.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/venus.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/materialize.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/controller_graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/controller_graph.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/client/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+    <list default="true" id="77ffe8fe-af66-4e7a-83f4-4d7d7d404ed0" name="Default" comment="create 3d graphs values ready">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,6 +45,7 @@
           <entry key="html" value="5" />
           <entry key="ipynb" value="1" />
           <entry key="js" value="3" />
+          <entry key="md" value="1" />
           <entry key="py" value="29" />
         </counts>
       </usages-collector>
@@ -77,6 +55,7 @@
           <entry key="HTML" value="5" />
           <entry key="IPNB" value="1" />
           <entry key="JavaScript" value="3" />
+          <entry key="Markdown" value="1" />
           <entry key="Python" value="29" />
         </counts>
       </usages-collector>
@@ -85,7 +64,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="63" />
-          <entry key="PLAIN_TEXT" value="32" />
+          <entry key="PLAIN_TEXT" value="67" />
           <entry key="Python" value="4040" />
         </counts>
       </usages-collector>
@@ -95,7 +74,7 @@
           <entry key="dummy" value="9" />
           <entry key="html" value="63" />
           <entry key="py" value="3569" />
-          <entry key="txt" value="23" />
+          <entry key="txt" value="58" />
         </counts>
       </usages-collector>
     </session>
@@ -127,15 +106,27 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/controller_graph.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+            <state relative-caret-position="191">
+              <caret line="35" column="52" lean-forward="true" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
               <folding>
                 <marker date="1537334609508" expanded="true" signature="447:453" ph="..." />
                 <marker date="1537334609508" expanded="true" signature="666:1506" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="338">
+                <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -181,7 +172,6 @@
         <option value="$PROJECT_DIR$/Grafar.py" />
         <option value="$PROJECT_DIR$/Graph.py" />
         <option value="$PROJECT_DIR$/static/controllers/controller_database.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/resources/database/__init__.py" />
         <option value="$PROJECT_DIR$/resources/database/database.py" />
         <option value="$PROJECT_DIR$/controllers/metadata.py" />
@@ -196,6 +186,7 @@
         <option value="$PROJECT_DIR$/resources/client/client.py" />
         <option value="$PROJECT_DIR$/resources/client/test.ipynb" />
         <option value="$PROJECT_DIR$/controllers/controller_graph.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -378,14 +369,30 @@
       <option name="project" value="LOCAL" />
       <updated>1536903648429</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="create 3d graphs values ready">
+      <created>1537334666495</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1537334666495</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TodoView" selected-index="4">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="1363" y="0" width="1446" height="903" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20988539" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20988539" />
       <window_info id="Structure" order="1" weight="0.24962063" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
@@ -394,7 +401,7 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32947233" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50143266" side_tool="true" weight="0.34620336" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.49722221" weight="0.6036036" />
@@ -419,7 +426,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update version to 1.0.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="update version to 1.0.1" />
+    <MESSAGE value="create 3d graphs values ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="create 3d graphs values ready" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/static/functions_images/sin(x).png" />
@@ -428,16 +436,6 @@
     <entry file="file://$PROJECT_DIR$/static/functions_images/x*2.png" />
     <entry file="file://$PROJECT_DIR$/static/functions_images/x^3+5.png" />
     <entry file="file://$PROJECT_DIR$/static/functions_images/2*xdiv2.png" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="342">
-            <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/functions_images/2*x^2.png" />
     <entry file="file://$PROJECT_DIR$/static/functions_images/3*x+x^3.png" />
     <entry file="file://$PROJECT_DIR$/static/functions_images/2*(xdivx^2)+10.png" />
@@ -560,12 +558,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/controller_graph.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+        <state relative-caret-position="191">
+          <caret line="35" column="52" lean-forward="true" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
           <folding>
             <marker date="1537334609508" expanded="true" signature="447:453" ph="..." />
             <marker date="1537334609508" expanded="true" signature="666:1506" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="338">
+            <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
