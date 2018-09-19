@@ -1,10 +1,197 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <title>grafar</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Sistema solar</title>
+  <link rel="shortcut icon" href=./../static/img/mars.jpg" type="image/png">
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="./../static/css/materialize.css">
+  <link rel="stylesheet" href="./../static/css/icons.css">
+  <link rel="stylesheet" href="./../static/css/style.css">
 </head>
+
 <body>
-    <h1>Welcome to GRAFAR</h1>
+  <div class="navbar-fixed">
+    <nav class="purple darken-3">
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">
+          <i class="large material-icons">ac_unit</i> Sistema solar
+        </a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul class="right hide-on-med-and-down nav-elements">
+          <li>
+            <a href="#home">Inicio</a>
+          </li>
+          <li>
+            <a href="#mercury-venus">Mercurio</a>
+          </li>
+          <li>
+            <a href="#mercury-venus">Venus</a>
+          </li>
+          <li>
+            <a href="#earth">Tierra</a>
+          </li>
+          <li>
+            <a href="#mars-jupyter">Marte</a>
+          </li>
+          <li>
+            <a href="#mars-jupyter">Jupiter</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li>
+      <a href="#home">Inicio</a>
+    </li>
+    <li>
+      <a href="#mercury-venus">Acerca</a>
+    </li>
+    <li>
+      <a href="#earth">Servicios</a>
+    </li>
+    <li>
+      <a href="#mars-jupyter">Contacto</a>
+    </li>
+  </ul>
+
+  <section id="home" class="header">
+    <div class="parallax-container parallax-header">
+      <div class="container right header-content">
+        <div class="row">
+          <div class="col s12 white-text">
+            <h1 class="teal-text white-text"> El sistema solar </h1>
+            <hr>
+            <h4>Los ocho planetas</h4>
+            <a class="waves-effect waves-light btn-large purple darken-5"> Iniciar recorrido </a>
+          </div>
+        </div>
+      </div>
+      <div class="parallax">
+        <img src="./../static/img/sistemasolar1.jpg">
+      </div>
+    </div>
+  </section>
+
+  <section id="mercury-venus" class="mercury-venus">
+    <div class="container">
+      <div class="row portion">
+        <div class="col s12 m5 img-container">
+          <img class="responsive-img z-depth-5" src="./../static/img/mercurio.jpg" alt="">
+        </div>
+        <div class="col s12 m7">
+          <h4 class="left-align">Mercurio</h4>
+          <p class="flow-text">
+            Mercurio es el planeta del sistema solar más próximo al Sol y el más pequeño. Forma parte de los denominados planetas interioreso
+            terrestres y carece de satélites naturales al igual que Venus
+          </p>
+        </div>
+      </div>
+      <div class="row portion">
+        <div class="col s12 m7">
+          <h4 class="right-align">Venus</h4>
+          <p class="flow-text right-align">
+            Venus es el segundo planeta del sistema solar en orden de distancia desde el Sol, el sexto en cuanto a tamaño, ordenados
+            de mayor a menor. Al igual que Mercurio, carece de satélites naturales.
+          </p>
+        </div>
+        <div class="col s12 m5 img-container">
+          <img class="responsive-img z-depth-5" src="./../static/img/venus.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="earth" class="earth">
+    <div class="parallax-container parallax-tierra">
+      <div class="container left earth-content">
+        <div class="row">
+          <div class="col s12 white-text">
+            <h4 class="teal-text white-text"> La tierra </h4>
+            <hr class="earth-hr">
+            <p class="flow-text center-align white-text">
+              La Tierra es un planeta del sistema solar que gira alrededor de su estrella —el Sol— en la tercera órbita más interna. Es
+              el más denso y el quinto mayor de los ocho planetas del sistema solar. También es el mayor de los cuatro terrestres
+              o rocosos.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="parallax">
+        <img src="./../static/img/tierra.jpg">
+      </div>
+    </div>
+  </section>
+
+  <section id="mars-jupyter" class="mars-jupyter">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator responsive-img" src="./../static/img/mars.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4"> Marte
+                <i class="material-icons right">more_vert</i>
+              </span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4"> Marte
+                <i class="material-icons right">close</i>
+              </span>
+              <hr>
+              <p class="center-align">
+                Marte es el cuarto planeta en orden de distancia al Sol y el segundo más pequeño del sistema solar, después de Mercurio.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator responsive-img" src="./../static/img/jupyter.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4"> Júpiter
+                <i class="material-icons right">more_vert</i>
+              </span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4"> Júpiter
+                <i class="material-icons right">close</i>
+              </span>
+              <hr>
+              <p class="center-align">
+                Júpiter es el quinto planeta del sistema solar. Forma parte de los denominados planetas exteriores o gaseosos. Recibe su
+                nombre del dios romano Júpiter. Se trata del planeta que ofrece un mayor brillo a lo largo del año dependiendo
+                de su fase.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+
+  </section>
+
+
+
+  <!-- Javascript files -->
+  <script src="./../static/js/jquery.js"></script>
+  <script src="./../static/js/materialize.js"></script>
+  <script src="./../static/js/main.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,54 @@
+/**************************************************************
+                        Header style
+**************************************************************/
+.nav-wrapper{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.nav-elements > li {
+    width: 120px;
+    text-align: center;
+}
+
+.parallax-header{
+    height: 100vh;
+}
+
+.header-content{
+    width: 40vw;
+    margin-right: 10vh;
+    text-align: center;
+}
+
+.planets{
+    margin-top: 50px;
+}
+
+.portion{
+    padding-top: 5%;
+}
+
+.img-container{
+    height: 30vh;
+    margin-top: 5%;
+}
+
+.parallax-tierra{
+    margin-top: 100px;
+    height: 40vh;
+}
+
+.earth-content{
+    margin-left: 5%;
+    text-align: center;
+    width: 60%;
+}
+
+.earth-hr{
+    width: 80%;
+}
+
+.mars-jupyter{
+    padding-top: 100px;
+}
