@@ -7,4 +7,5 @@ mongo_client = MongoClient('localhost', 27017)
 grafar_db = mongo_client.GrafarDB
 
 # Connect to graphs document
-graphs_collection = grafar_db.graphs
+graphs_2d_collection = grafar_db.graphs2d
+graphs_3d_collection = grafar_db.graphs3d

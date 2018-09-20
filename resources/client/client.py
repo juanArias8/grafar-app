@@ -1,19 +1,20 @@
-import os
-
 from flask import Flask
 from flask import jsonify
-from flask import render_template
 from flask import make_response
+from flask import render_template
 
 from flask_restful import Api
 from flask_restful import Resource
 
 from resources.client.request import parser_function
-from resources.database.database import graphs_collection
+from resources.database.database import graphs_2d_collection
+from resources.database.database import graphs_3d_collection
 
 from controllers import controller_database
-from controllers.controller_graph import Graph2D
 from controllers.metadata import FunctionFields
+from controllers.controller_graph import Graph2D
+from controllers.controller_graph import Graph3D
+
 
 static_folder = './../../static'
 template_folder = './../../templates'
@@ -36,24 +37,27 @@ class Function(Resource):
     def post(self):
         success = False
         message = 'Error'
+
         data_function = parser_function.parse_args()
+        function_str = data_function[FunctionFields.function_str]
         try:
-            graph = Graph2D(
-                data_function[FunctionFields.function],
-                data_function[FunctionFields.param_a],
-                data_function[FunctionFields.param_b]
-            )
-            x, y = graph.create_points_graph_2d()
-            x, y = str(x), str(y)
-            controller_database.insert_graph(
-                graphs_collection, data_function[FunctionFields.function], x, y
-            )
+            if 'y' in function_str:
+                x, y, z = self.__convert_function_str_to_graph_3d(data_function)
+                self.__save_graph_3d_into_database(
+                    graphs_3d_collection, function_str, x, y, z
+                )
+                message = {'x': x, 'y': y, 'z': z}
+            else:
+                x, y = self.__convert_function_str_to_graph_2d(data_function)
+                self.__save_graph_2d_into_database(
+                    graphs_2d_collection, function_str, x, y
+                )
+                message = {'x': x, 'y': y}
         except Exception as e:
             print(e)
             message = 'Error ' + str(e)
             success = False
         else:
-            message = {'x': x, 'y': y}
             success = True
         finally:
             answer = jsonify({
@@ -61,3 +65,37 @@ class Function(Resource):
                 'message': message
             })
         return answer
+
+    @staticmethod
+    def __convert_function_str_to_graph_3d(data_function):
+        graph = Graph3D(
+            data_function[FunctionFields.function_str],
+            data_function[FunctionFields.a_value],
+            data_function[FunctionFields.b_value]
+        )
+        x, y, z = graph.create_points_graph_3d()
+
+        return str(x), str(y), str(z)
+
+    @staticmethod
+    def __save_graph_3d_into_database(collection, function_str, x, y, z):
+        controller_database.insert_3d_graph(
+            collection, function_str, x, y, z
+        )
+
+    @staticmethod
+    def __convert_function_str_to_graph_2d(data_function):
+        graph = Graph2D(
+            data_function[FunctionFields.function_str],
+            data_function[FunctionFields.a_value],
+            data_function[FunctionFields.b_value]
+        )
+        x, y = graph.create_points_graph_2d()
+
+        return str(x), str(y)
+
+    @staticmethod
+    def __save_graph_2d_into_database(collection, function_str, x, y):
+        controller_database.insert_2d_graph(
+            collection, function_str, x, y
+        )

@@ -4,12 +4,24 @@ insert, search, update and delete fields from database
 """
 
 
-def insert_graph(collection, function_name, x, y):
+def insert_2d_graph(collection, function_name, x, y):
     try:
         collection.insert({
             'function': function_name,
-            'x': str(x),
-            'y': str(y)
+            'x': x,
+            'y': y
+        })
+    except Exception as e:
+        print(e)
+
+
+def insert_3d_graph(collection, function_name, x, y, z):
+    try:
+        collection.insert({
+            'function': function_name,
+            'x': x,
+            'y': y,
+            'z': z
         })
     except Exception as e:
         print(e)

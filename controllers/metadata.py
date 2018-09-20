@@ -1,4 +1,4 @@
 class FunctionFields(object):
-    function = 'function'
-    param_a = 'a'
-    param_b = 'b'
+    function_str = 'function'
+    a_value = 'a'
+    b_value = 'b'

@@ -1,49 +1,48 @@
-import sympy as sym
+import sympy as sp
 import numpy as np
 
 
 # https://plot.ly/javascript/line-charts/
 class Graph2D:
-    def __init__(self, function_param, a_param, b_param):
-        self.function_param = function_param
-        self.a_param = a_param
-        self.b_param = b_param
+    def __init__(self, function_str, a_value, b_value):
+        self.function_str = function_str
+        self.a_value = a_value
+        self.b_value = b_value
 
-        self.x = sym.Symbol('x')
-        self.fx = sym.sympify(self.function_param)
+        self.x = sp.Symbol('x')
+        self.fx = sp.sympify(self.function_str)
 
-    @np.vectorize
-    def evaluate_fx(self, x_value):
-        return self.fx.subs(self.x, x_value)
+    def __evaluate_fx(self, vector_x, expr):
+        f = sp.lambdify(self.x, expr)
+        vectorize_f = np.vectorize(f)
+        return vectorize_f(vector_x)
 
     def create_points_graph_2d(self):
-        vector_x = np.arange(self.a_param, self.b_param, 0.05)
-        vector_y = self.evaluate_fx(self, vector_x)
-        return list(vector_x), list(vector_y)
+        vector_x = np.arange(self.a_value, self.b_value, 0.05)
+        vector_y = self.__evaluate_fx(self, vector_x)
+
+        return vector_y.tolist(), vector_y.tolist()
 
 
 class Graph3D():
-    def __init__(self, function_param, a_param, b_param):
-        self.function_param = function_param
-        self.a_param = a_param
-        self.b_param = b_param
+    def __init__(self, function_str, a_value, b_value):
+        self.function_str = function_str
+        self.a_value = a_value
+        self.b_value = b_value
 
-        self.x = sym.Symbol('x')
-        self.y = sym.Symbol('y')
-        self.fxy = sym.sympify(self.function_param)
+        self.x = sp.Symbol('x')
+        self.y = sp.Symbol('y')
+        self.fxy = sp.sympify(self.function_str)
 
-        def evaluate_fxy(val_x, val_y):
-            return float(self.fxy.subs((self.x, val_x), (self.y, val_y)))
+    def __evaluate_fxy(self, vector_x, vector_y, expr):
+        f = sp.lambdify((self.x, self.y), expr)
+        vectorize_f = np.vectorize(f)
+        return vectorize_f(vector_x, vector_y)
 
-        def create_points_graph_3d(self):
-            vector_x = vector_y = np.arange(self.a_param, self.b_param, 0.05)
-            vector_x, vector_y = np.meshgrid(vector_x, vector_y)
+    def create_points_graph_3d(self):
+        vector_x = vector_y = np.arange(self.a_value, self.b_value, 0.05)
+        vector_x, vector_y = np.meshgrid(vector_x, vector_y)
+        vector_z = self.__evaluate_fxy(vector_x, vector_y, self.function_str)
 
-            z = np.array(
-                [evaluate_fxy(i, j) for i, j in
-                 zip(np.ravel(vector_x), np.ravel(vector_y))]
-            )
-            z = z.reshape(vector_x.shape)
-
-            return list(vector_x), list(vector_y), list(z)
+        return vector_y.tolist(), vector_y.tolist(), vector_z.tolist()
 
