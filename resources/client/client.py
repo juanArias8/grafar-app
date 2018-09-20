@@ -10,10 +10,10 @@ from resources.client.request import parser_function
 from resources.database.database import graphs_2d_collection
 from resources.database.database import graphs_3d_collection
 
-from controllers import controller_database
-from controllers.metadata import FunctionFields
-from controllers.controller_graph import Graph2D
-from controllers.controller_graph import Graph3D
+from resources.controllers import controller_database
+from resources.utils.metadata import FunctionFields
+from resources.controllers.controller_graph import Graph2D
+from resources.controllers.controller_graph import Graph3D
 
 
 static_folder = './../../static'
@@ -39,7 +39,7 @@ class Function(Resource):
         message = 'Error'
 
         data_function = parser_function.parse_args()
-        function_str = data_function[FunctionFields.function_str]
+        function_str = data_function[FunctionFields.function]
         try:
             if 'y' in function_str:
                 x, y, z = self.__convert_function_str_to_graph_3d(data_function)
@@ -69,7 +69,7 @@ class Function(Resource):
     @staticmethod
     def __convert_function_str_to_graph_3d(data_function):
         graph = Graph3D(
-            data_function[FunctionFields.function_str],
+            data_function[FunctionFields.function],
             data_function[FunctionFields.a_value],
             data_function[FunctionFields.b_value]
         )
@@ -86,7 +86,7 @@ class Function(Resource):
     @staticmethod
     def __convert_function_str_to_graph_2d(data_function):
         graph = Graph2D(
-            data_function[FunctionFields.function_str],
+            data_function[FunctionFields.function],
             data_function[FunctionFields.a_value],
             data_function[FunctionFields.b_value]
         )

@@ -1,38 +1,42 @@
+from resources.utils.metadata import FunctionFields
+from resources.utils.metadata import Graph2dFields
+from resources.utils.metadata import Graph3dFields
+
 """
 controller_database define all operations whit mongodb database
 insert, search, update and delete fields from database
 """
 
 
-def insert_2d_graph(collection, function_name, x, y):
+def insert_2d_graph(collection, function_str, x, y):
     try:
         collection.insert({
-            'function': function_name,
-            'x': x,
-            'y': y
+            Graph2dFields.function: function_str,
+            Graph2dFields.x: x,
+            Graph2dFields.y: y
         })
     except Exception as e:
         print(e)
 
 
-def insert_3d_graph(collection, function_name, x, y, z):
+def insert_3d_graph(collection, function_str, x, y, z):
     try:
         collection.insert({
-            'function': function_name,
-            'x': x,
-            'y': y,
-            'z': z
+            Graph3dFields.function: function_str,
+            Graph3dFields.x: x,
+            Graph3dFields.y: y,
+            Graph3dFields.z: z
         })
     except Exception as e:
         print(e)
 
 
-def search_function(collection, function_name: str) -> tuple:
+def search_function(collection, function_str: str) -> tuple:
     success = False
     message = None
     try:
         graph_response = collection.find_one({
-            'function': function_name
+            FunctionFields.function: function_str
         })
     except Exception as e:
         print(e)
