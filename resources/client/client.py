@@ -37,6 +37,7 @@ class Function(Resource):
     def post(self):
         success = False
         message = 'Error'
+        type_graph = 0
 
         data_function = parser_function.parse_args()
         function_str = data_function[FunctionFields.function]
@@ -47,12 +48,14 @@ class Function(Resource):
                     graphs_3d_collection, function_str, x, y, z
                 )
                 message = {'x': x, 'y': y, 'z': z}
+                type_graph = 3
             else:
                 x, y = self.__convert_function_str_to_graph_2d(data_function)
                 self.__save_graph_2d_into_database(
                     graphs_2d_collection, function_str, x, y
                 )
                 message = {'x': x, 'y': y}
+                type_graph = 2
         except Exception as e:
             print(e)
             message = 'Error ' + str(e)
@@ -62,7 +65,8 @@ class Function(Resource):
         finally:
             answer = jsonify({
                 'success': success,
-                'message': message
+                'message': message,
+                'type': type_graph
             })
         return answer
 

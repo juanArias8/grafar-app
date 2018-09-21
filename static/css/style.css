@@ -1,3 +1,44 @@
 /**************************************************************
                         Header style
 **************************************************************/
+html, body {
+    overflow-y: hidden;
+}
+
+.controller {
+    height: 100vh;
+    background-color: #607d8b;
+    top: 0;
+    left: 0;
+    color: #fff;
+}
+
+h1 {
+    text-shadow: 5px 5px 5px black;
+}
+
+.function-form ::-webkit-input-placeholder {
+    color: black;
+    opacity: 0.7 !important;
+}
+
+.function-field {
+    background-color: white !important;
+    padding-left: 20px !important;
+}
+
+.btn-function {
+    height: 45px;
+    width: 100%;
+}
+
+.graphs-container {
+    height: 100vh;
+    border: 10px inset #607d8b;
+}
+
+#plotContainer{
+    margin: 0 auto;
+    height: 600px;
+    width: 600px;
+}
