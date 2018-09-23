@@ -1,6 +1,7 @@
 <component name="ProjectDictionaryState">
   <dictionary name="jndev">
     <words>
+      <w>gunicorn</w>
       <w>preloader</w>
       <w>vectorize</w>
     </words>
