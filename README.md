@@ -15,12 +15,9 @@ la gráfica de una función matemática, bien sea de una o dos variables.
  Para visualizar una gráfica en GRAFAR sólo basta con ingresar los campos solicitados en el formulario, en primer lugar se debe ingresar la función bien sea en términos de x o en términos de x e y, luego se procede a ingresar el intervalo en el cual se desea evaluar la función. 
  ***
  ## Herramientas utilizadas
- * Persistencia
-    * MongoDb
  * Backend
     * Python3
     * Python Flask
-    * PyMongo
     * Numpy
     * Sympy
 * Frontend

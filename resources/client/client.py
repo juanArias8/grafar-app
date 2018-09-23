@@ -7,10 +7,7 @@ from flask_restful import Api
 from flask_restful import Resource
 
 from resources.client.request import parser_function
-from resources.database.database import graphs_2d_collection
-from resources.database.database import graphs_3d_collection
 
-from resources.controllers import controller_database
 from resources.utils.metadata import FunctionFields
 from resources.controllers.controller_graph import Graph2D
 from resources.controllers.controller_graph import Graph3D
@@ -44,16 +41,10 @@ class Function(Resource):
         try:
             if 'y' in function_str:
                 x, y, z = self.__convert_function_str_to_graph_3d(data_function)
-                self.__save_graph_3d_into_database(
-                    graphs_3d_collection, function_str, x, y, z
-                )
                 message = {'x': x, 'y': y, 'z': z}
                 type_graph = 3
             else:
                 x, y = self.__convert_function_str_to_graph_2d(data_function)
-                self.__save_graph_2d_into_database(
-                    graphs_2d_collection, function_str, x, y
-                )
                 message = {'x': x, 'y': y}
                 type_graph = 2
         except Exception as e:
@@ -82,12 +73,6 @@ class Function(Resource):
         return str(x), str(y), str(z)
 
     @staticmethod
-    def __save_graph_3d_into_database(collection, function_str, x, y, z):
-        controller_database.insert_3d_graph(
-            collection, function_str, x, y, z
-        )
-
-    @staticmethod
     def __convert_function_str_to_graph_2d(data_function):
         graph = Graph2D(
             data_function[FunctionFields.function],
@@ -97,9 +82,3 @@ class Function(Resource):
         x, y = graph.create_points_graph_2d()
 
         return str(x), str(y)
-
-    @staticmethod
-    def __save_graph_2d_into_database(collection, function_str, x, y):
-        controller_database.insert_2d_graph(
-            collection, function_str, x, y
-        )
