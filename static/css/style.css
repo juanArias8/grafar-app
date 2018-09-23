@@ -42,3 +42,7 @@ h1 {
     height: 600px;
     width: 600px;
 }
+
+.progress, .indeterminate{
+    width: 100%;
+}

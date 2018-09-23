@@ -1,0 +1,6 @@
+flask 
+jsonify
+flask_restful
+pymongo
+numpy
+sympy
