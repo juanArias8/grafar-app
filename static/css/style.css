@@ -37,12 +37,60 @@ h1 {
     border: 10px inset #607d8b;
 }
 
-#plotContainer{
+#plotContainer {
     margin: 0 auto;
     height: 600px;
     width: 600px;
 }
 
-.progress, .indeterminate{
+.progress, .indeterminate {
     width: 100%;
+}
+
+@media screen and (max-height: 600px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .flow-text {
+        font-size: 1.2rem;
+    }
+
+     html, body {
+        overflow-y: scroll;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    html, body {
+        overflow-y: auto;
+    }
+
+    .controller {
+        height: 100%;
+    }
+
+    .btn-function {
+        width: 70%;
+        margin-left: 20px;
+    }
+
+    .graphs-container{
+        height: auto;
+        width: auto;
+    }
+
+    #plotContainer {
+        margin: 0 auto;
+        width: 500px;
+        height: 500px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+     #plotContainer {
+        margin: 0 auto;
+        width: 350px;
+        height: 350px;
+    }
 }
