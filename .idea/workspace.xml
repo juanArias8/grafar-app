@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77ffe8fe-af66-4e7a-83f4-4d7d7d404ed0" name="Default" comment="production">
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
-    </list>
+    <list default="true" id="77ffe8fe-af66-4e7a-83f4-4d7d7d404ed0" name="Default" comment="production" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +97,7 @@
     <session id="1990741742">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -152,7 +151,7 @@
         <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="27" selection-start-column="27" selection-end-column="27" />
+              <caret column="27" lean-forward="true" selection-start-column="27" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -489,7 +488,14 @@
       <option name="project" value="LOCAL" />
       <updated>1537744038547</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="production">
+      <created>1537745878827</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1537745878827</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -719,7 +725,7 @@
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="27" selection-start-column="27" selection-end-column="27" />
+          <caret column="27" lean-forward="true" selection-start-column="27" selection-end-column="27" />
         </state>
       </provider>
     </entry>
