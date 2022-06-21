@@ -8,7 +8,7 @@ Jinja2==2.10
 jsonify==0.5
 MarkupSafe==1.0
 mpmath==1.0.0
-numpy==1.15.2
+numpy==1.22.0
 pytz==2018.5
 six==1.11.0
 sympy==1.3
